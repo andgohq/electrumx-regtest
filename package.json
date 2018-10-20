@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "electrum-client": "^0.0.6"
+  }
+}
