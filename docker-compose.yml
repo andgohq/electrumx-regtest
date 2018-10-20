@@ -1,0 +1,28 @@
+version: '2'
+services:
+  bitcoind:
+    image: ruimarinho/bitcoin-core:0.17.0
+    expose:
+      - "18443"
+    volumes:
+      - ./data/bitcoind:/home/bitcoin/.bitcoin
+    command:
+      -printtoconsole
+      -regtest=1
+      -txindex=1
+      -server=1
+      -rpcuser=electrum
+      -rpcpassword=electrum
+      -rpcallowip=0.0.0.0/0
+
+  electrumx:
+    image: lukechilds/electrumx
+    ports:
+      - "55002:50002"
+    volumes:
+      - ./data/electrumx:/data
+    environment:
+      - DAEMON_URL=http://electrum:electrum@bitcoind:18443
+      - COIN=BitcoinSegwit
+      - NET=regtest
+      - RPC_HOST=127.0.0.1
