@@ -2,7 +2,7 @@
 
 * New blocks are mined automatically every 20 seconds
 * Insight API: tls@55002
-* Faucet API: http://localhost:3000/faucet/
+* Faucet API: http://localhost:3001/faucet/
 
 # Requirement
 * docker & docker-compose

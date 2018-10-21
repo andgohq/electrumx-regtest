@@ -3,6 +3,8 @@ services:
   bitcoind:
     image: andgo/bitcoind
     build: "./bitcoind"
+    ports:
+      - "3001:3000"
     expose:
       - "18443"
     volumes:
