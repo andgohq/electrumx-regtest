@@ -20,7 +20,7 @@ Following commands are enabled under the root dir of the project.
 
 # Electrum API example
 
-`node rpctest.js`
+after `$ npm install`, try `$ node rpctest.js`.
 
 # Faucet API example
 
