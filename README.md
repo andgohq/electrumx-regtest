@@ -1,7 +1,7 @@
 # Bitcoin Regtest with Electrum Server and Faucet API
 
 * New blocks are mined automatically every 20 seconds
-* Insight API: tls@55002
+* Insight API: tls@55002, tcp@55001
 * Faucet API: http://localhost:3001/faucet/
 
 # Requirement
@@ -24,7 +24,7 @@ after `$ npm install`, try `$ node rpctest.js`.
 
 # Faucet API example
 
-`curl -d "amount=10"  http://localhost:3000/faucet/mnJQyeDFmGjNoxyxKQC6MMFdpx77rYV3Bo`
+`curl -d "amount=10"  http://localhost:3001/faucet/mnJQyeDFmGjNoxyxKQC6MMFdpx77rYV3Bo`
 
 # Other examples
 
