@@ -1,7 +1,7 @@
 version: '2'
 services:
   bitcoind:
-    image: andgo/bitcoind
+    image: andgohq/bitcoind
     build: "./bitcoind"
     ports:
       - "3001:3000"
@@ -11,7 +11,7 @@ services:
       - ./data/bitcoind:/home/bitcoin/.bitcoin
 
   electrumx:
-    image: lukechilds/electrumx
+    image: andgohq/electrumx:1.8.7
     ports:
       - "55002:50002"
       - "55001:50001"
