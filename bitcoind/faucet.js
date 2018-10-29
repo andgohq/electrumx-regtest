@@ -54,6 +54,9 @@ app.post('/faucet/:address', (req, res) => {
   }
 });
 
+app.get('/ping', (req, res) => {
+  res.send({ message: 'pong' });
+});
 
 app.listen(PORT_FAUCET, () => {
     console.log('Faucet server up!');
