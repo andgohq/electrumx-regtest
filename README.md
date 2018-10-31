@@ -11,12 +11,17 @@
 
 Following commands are enabled under the root dir of the project.
 
-* build: `docker-compose build`
-* start daemon: `docker-compose up -d`
+* 1. build: `docker-compose build`
+* 2. clean: `./clean-electrumx.sh`
+* 3. start daemon: `docker-compose up -d`
+* 4. test: `./test.sh`
+
+## Other commands
 * stop & remove daemon: `docker-compose down`
 * list process: `docker-compose ps`
 * login to the server: `docker-compose exec bitcoind bash`
 * run command: `docker-compose exec bitcoind [command]`
+
 
 # Electrum API example
 

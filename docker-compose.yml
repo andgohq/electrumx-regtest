@@ -4,21 +4,35 @@ services:
     image: andgohq/bitcoind
     build: "./bitcoind"
     ports:
+      # faucet api
       - "3001:3000"
     expose:
+      # rpc api
       - "18443"
     volumes:
       - ./data/bitcoind:/home/bitcoin/.bitcoin
 
   electrumx:
     image: andgohq/electrumx:1.8.7
+    depends_on:
+      - "bitcoind"
+    command: ["wait-for-it.sh", "bitcoind:3000", "--", "init"]  
     ports:
       - "55002:50002"
       - "55001:50001"
+    expose:
+      - "50001"
+      - "50002"
     volumes:
       - ./data/electrumx:/data
     environment:
+      # bitcoind is valid
       - DAEMON_URL=http://electrum:electrum@bitcoind:18443
       - COIN=BitcoinSegwit
       - NET=regtest
-      - RPC_HOST=127.0.0.1
+      # 127.0.0.1 or electrumx is valid for RPC_HOST
+      - RPC_HOST=electrumx
+      - RPC_PORT=18443
+      - HOST=electrumx
+      - TCP_PORT=50001
+      - SSL_PORT=50002

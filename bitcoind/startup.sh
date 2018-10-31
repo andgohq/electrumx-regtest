@@ -4,7 +4,7 @@
 
 bitcoind -daemon --datadir=/home/bitcoin/.bitcoin -conf=/home/bitcoin/bitcoin.conf
 
-sleep 5
+sleep 10
 
 cd /home/bitcoin
 
